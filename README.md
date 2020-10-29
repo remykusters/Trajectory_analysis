@@ -7,7 +7,7 @@ https://competitions.codalab.org/competitions/23601#learn_the_details-the-andi-w
 # Neural network architecture 
 We use a multi-task feed-forward neural network with N different features that characterize the trajectory and use a simple architecture as described below to perform the classification of the trajectory.  
 
-![multi_task_network](/Users/remykusters/Dropbox/CRI/Presentations/multi_task_network.png)
+![multi_task_network](multi_task_network.png)
 
 Both the architecture as well as some predefined features are outlined in the src folder. We provide a simple Jupyter notebook in the notebook folder and, using the ANDI challange code (https://github.com/AnDiChallenge) we wrote a simple notebook to generate trajectories of different lengths. 
 
