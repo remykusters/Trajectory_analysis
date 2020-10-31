@@ -5,7 +5,7 @@ This work is inspired by the ANDI challenge
 https://competitions.codalab.org/competitions/23601#learn_the_details-the-andi-workshop
 
 # Neural network architecture 
-We use a multi-task feed-forward neural network with N different features that characterize the trajectory and use a simple architecture as described below to perform the classification of the trajectory.  
+We use a multi-task feature-forward neural network with N different features that characterize the trajectory and use a simple architecture as described below to perform the classification of the trajectory.  
 
 ![multi_task_network](multi_task_network.png)
 
