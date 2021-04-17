@@ -17,7 +17,7 @@ def convex_hull(trajectories, delta, padding=True):
     This function calculates the value of the convex hull as function of the length of the trajectory. Note that we define a seperate function 
     that ensures the scipy ConvexHull function doesn't return an error when the value is 0
     '''
-    traj = [ i.T for i in trajectories]
+    traj = [i.T for i in trajectories]
     vol_tot = [np.array([cv(traject,i,delta) for i in np.arange(len(traject)-delta-1)]) for traject in traj]
     if padding == True:
         return pad(vol_tot)
@@ -42,3 +42,16 @@ def dist_distribution(trajectories):
     step_distance = [np.sqrt(np.diff(trajectory, axis=0)**2) for trajectory in trajectories]
     distributions = np.array([np.array(np.histogram(dist, bins=20)[0]) for dist in step_distance])
     return distributions
+
+def just_traj(trajectories, padding=True):
+    '''
+    This function calculates the normalized trajectory and returns a list with the x and y values   
+    '''
+    x = [i[0,:] for i in trajectories]
+    y = [i[1,:] for i in trajectories]
+    if padding == True:
+        x = pad(x)
+        y = pad(y)
+        return x/np.max(x), y/np.max(y)
+    else:
+        return x/np.max(x), y/np.max(y)

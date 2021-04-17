@@ -12,7 +12,7 @@ def Andi_to_xy_testdata(data):
     return x_data, y_data
 
 
-def Andi_to_xy(path_input, path_labels):
+def Data_to_xy(path_input, path_labels):
     
     '''
     This function takes as input the 2D Andi data set and outputs the corresponding x,y data lists
@@ -25,6 +25,22 @@ def Andi_to_xy(path_input, path_labels):
     # Extract the labels
     labels = pd.read_csv(path_labels).values[:,1]
     output = np.array([np.eye(5)[labels[i]] for i in range(len(labels))])
+    return xy_data, output
+
+
+def Andi_to_xy(path_input, path_labels):
+    
+    '''
+    This function takes as input the 2D Andi data set and outputs the corresponding x,y data lists
+    '''
+    all_2D =  pd.read_csv(path_input, index_col=0).values[:,2:]
+    data = [all_2D[i][~np.isnan(all_2D[i])].reshape(1,-1) for i in np.arange(len(all_2D))]
+    T_lens = [np.int((k.shape[1]-3)/2)for k in data]
+    xy_data = [np.concatenate([k[:,3:T_lens[i]+3],k[:,T_lens[i]+3:]], axis=0) for  i, k in enumerate(data)]
+    
+    # Extract the labels
+    labels = pd.read_csv(path_labels, index_col=0).values[:,1]
+    output = np.array([np.eye(5)[np.int(labels[i])] for i in range(len(labels))])
     return xy_data, output
 
 
