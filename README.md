@@ -33,6 +33,21 @@ More specifically one can distinguish then the following types of stochastic pro
 -   the Annealed Transient Time Motion (ATTM);
 -   the Scaled Brownian Motion (SBM).
 
+### Types of trajectories 
+
+**A continuous-time random walk (CTRW)** is a generalization of a random walk where the wandering particle waits for a random time between jumps. It is a stochastic jump process with arbitrary distributions of jump lengths $l(x)$ and waiting times $\phi(t)$.
+
+**The Fractional Brownian Motion (FBM)**
+  is a generalization of Brownian motion. Unlike classical Brownian motion, the increments of FBM need not be independent and the increment process, $X(t) = B_H(t+1) − B_H(t)$, is known as fractional Gaussian noise, where $H$ is Hurst exponent.
+  
+  **Hurst exponent** is defined through asymptotic behaviour of the rescaled range as a function of the time span of a time series.
+  
+  **Levy walk** is a random walk in which the step-lengths have a probability distribution that is heavy-tailed: $Pr(x<L)\propto [1:x<1] [x^{D}:x>1]$, where $D$ is Pareto distribution parameter.   Another way to look at  Levy Walk is as a Coupled CTRW. 
+
+**The main general challenge** for analysis trajectories is often limited especially for trajectories that are short, irregularly sampled or featuring mixed behaviors.
+
+**Scaled Brownian motion** is a simple model of anomalous diffusion, in which the diffusion coefficient varies with time as $D(t) = \alpha D_\alpha t^{\alpha-1}$, $\alpha\in(0,2)$ is scaling exponent, $D_\alpha$ is generalised diffusion coefficient. This is a nonstationary Gaussian process obtained by rescaling Brownian motion $W(t)$: $X(t) =\sqrt{D_\alpha} W(t^{\alpha}).$
+
 ### Problem formulation on ergodicity testing for trajectories  
 
 Let us assume that our system in its present state at some time t_0, while our measurement started at some later instant of time. Then the system possesses *no age*, if 
