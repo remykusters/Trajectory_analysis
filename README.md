@@ -39,14 +39,20 @@ More specifically one can distinguish then the following types of stochastic pro
 
 **The Fractional Brownian Motion (FBM)**
   is a generalization of Brownian motion. Unlike classical Brownian motion, the increments of FBM need not be independent and the increment process, $X(t) = B_H(t+1) − B_H(t)$, is known as fractional Gaussian noise, where $H$ is Hurst exponent.
-  
-  **Hurst exponent** is defined through asymptotic behaviour of the rescaled range as a function of the time span of a time series.
-  
+    
   **Levy walk** is a random walk in which the step-lengths have a probability distribution that is heavy-tailed: $Pr(x<L)\propto [1:x<1] [x^{D}:x>1]$, where $D$ is Pareto distribution parameter.   Another way to look at  Levy Walk is as a Coupled CTRW. 
 
-**The main general challenge** for analysis trajectories is often limited especially for trajectories that are short, irregularly sampled or featuring mixed behaviors.
-
 **Scaled Brownian motion** is a simple model of anomalous diffusion, in which the diffusion coefficient varies with time as $D(t) = \alpha D_\alpha t^{\alpha-1}$, $\alpha\in(0,2)$ is scaling exponent, $D_\alpha$ is generalised diffusion coefficient. This is a nonstationary Gaussian process obtained by rescaling Brownian motion $W(t)$: $X(t) =\sqrt{D_\alpha} W(t^{\alpha}).$
+
+**Brownian motion or Wiener process**
+In a Brownian time series there is no correlation between the observations and a future observation; a Hurst exponent close to 0.5 is indicative of a Brownian time series. 
+
+**Anti-persistent motion**
+ An anti-persistent time series (also known as a mean-reverting series) an increase will most likely be followed by a decrease or vice-versa (i.e., values will tend to revert to a mean). This means that future values have a tendency to return to a long-term mean. A Hurst exponent value between 0 and 0.5 is indicative of anti-persistent behavior and the closer the value is to 0, the stronger is the tendency for the time series to revert to its long-term means value.
+
+**Persistent motion**
+For persistent time series an increase in values will most likely be followed by an increase in the short term and a decrease in values will most likely be followed by another decrease in the short term. A Hurst exponent value between 0.5 and 1.0 indicates persistent behavior; the larger the H value the stronger the trend.
+
 
 ### Problem formulation on ergodicity testing for trajectories  
 
@@ -54,31 +60,25 @@ Let us assume that our system in its present state at some time t_0, while our m
 | x(t_2 - t_0) -x(t_1-t_0)|^2 = K(t_2-t_1)
 or in words, whenever we start our measurement on a process, the result of this measurement only depends on the time-lag between the measurement points denoted here as K. 
 
-### Ergodicity breaking tests
+### Additional properties of trajectories 
 
+ **Hurst exponent** is defined through asymptotic behaviour of the rescaled range as a function of the time span of a time series.
+
+**The main general challenge** for analysis trajectories is often limited especially for trajectories that are short, irregularly sampled or featuring mixed behaviors.
+
+**Ergodicity breaking tests** 
 There are various ergodicity breaking tests, one of them was developed in [2]. 
 The main idea of ergodicity breaking and mixing estimators are based on time-averaged characteristic function of increments and Khinchins theorem about relation between ergodicity and long-time vanishing velocity of autocorrelation function of stationary process (as null model of ergodic system).
 
-### MSD vs TAMSD
-
+**MSD vs. TAMSD properties of trajectories**
 In statistical mechanics, the mean squared displacement (MSD) is a measure of the deviation of the position of a particle with respect to a reference position over time. It is the most common measure of the spatial extent of random motion, and can be thought of as measuring the portion of the system "explored" by the random walker.  Another possible alternative to MSD is time-averaged MSD or TAMSD.
 
-### Hurst exponent 
+**Hurst exponent**
 
 In simple words, the Hurst exponent is used as a measure of the long-term memory of a time series. (Adapted from http://analytics-magazine.org/the-hurst-exponent-predictability-of-time-series/) Using the Hurst exponent we can classify time series into types and gain some insight into their dynamics. Here are some types of time series and the Hurst exponents associated with each of them.
 
-### Brownian motion or Wiener process 
 
-In a Brownian time series there is no correlation between the observations and a future observation; a Hurst exponent close to 0.5 is indicative of a Brownian time series. 
+[1] R. Metzler et al. "Anomalous diffusion models and their properties: non-stationarity, non-ergodicity, and ageing at the centenary of single particle tracking"  https://pubs.rsc.org/en/content/articlelanding/2014/cp/c4cp03465a#!divAbstract 
+Phys. Chem. Chem. Phys., 16, 24128-24164  (2014)
 
-### Anti-persistent motion
-
- An anti-persistent time series (also known as a mean-reverting series) an increase will most likely be followed by a decrease or vice-versa (i.e., values will tend to revert to a mean). This means that future values have a tendency to return to a long-term mean. A Hurst exponent value between 0 and 0.5 is indicative of anti-persistent behavior and the closer the value is to 0, the stronger is the tendency for the time series to revert to its long-term means value.
-
-### Persistent motion
-
-For persistent time series an increase in values will most likely be followed by an increase in the short term and a decrease in values will most likely be followed by another decrease in the short term. A Hurst exponent value between 0.5 and 1.0 indicates persistent behavior; the larger the H value the stronger the trend.
-
-[1] R. Metzler et al. "Anomalous diffusion models and their properties: non-stationarity, non-ergodicity, and ageing at the centenary of single particle tracking"  https://pubs.rsc.org/en/content/articlelanding/2014/cp/c4cp03465a#!divAbstract
-
-[2]  Y. Lanoissele et al. "Revealing nonergodic dynamics in living cells from a single particle trajectory" PRE, (2016) 
+[2]  Y. Lanoissele et al. "Revealing nonergodic dynamics in living cells from a single particle trajectory" Phys.Rev. E, (2016) 
