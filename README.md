@@ -1,8 +1,14 @@
 # Trajectory analysis
 In this repo we share a method to classify trajectories based on a set of pre-defined features of the trajectory, e.g. Q-meausure, convex Hull, distribution of distance travelled per step. This simple classification algorithm can be applied to characterize ergodic vs. non-ergodic trajectories, or more detailed classifications such as continuous time random walk , levy walk etc. (See a more detailed descriptiom below. While this repo mainly focusses on classification, we have also started working on estimating the the anomolous exponent of the trajectories (this is still under construction) 
 
-This work is inspired by the ANDI challenge 
+This work is inspired by the ANDI challenge which main aim is 
+at bringing together a vibrating and multidisciplinary community of scientists working on this problem. The use of the same reference datasets will allow an unbiased assessment of the performance of published and unpublished methods for characterizing anomalous diffusion from single trajectories.
 https://competitions.codalab.org/competitions/23601#learn_the_details-the-andi-workshop
+
+The main three tasks are:
+Task 1 - Inference of the anomalous diffusion exponent α.
+Task 2 - Classification of the diffusion model.
+Task 3 - Segmentation of trajectories.
 
 ## Neural network architecture 
 
@@ -77,6 +83,15 @@ In statistical mechanics, the mean squared displacement (MSD) is a measure of th
 
 In simple words, the Hurst exponent is used as a measure of the long-term memory of a time series. (Adapted from http://analytics-magazine.org/the-hurst-exponent-predictability-of-time-series/) Using the Hurst exponent we can classify time series into types and gain some insight into their dynamics. Here are some types of time series and the Hurst exponents associated with each of them.
 
+##  How to use this repository 
+
+The main notebook for interpretations of features are here:
+https://github.com/Liyubov/Trajectory_analysis/blob/main/notebooks/FFNN_Interpret-features-research.ipynb
+
+https://github.com/remykusters/Trajectory_analysis/blob/main/notebooks/FFNN_Interpret.ipynb
+
+In this notebook (on other branch) we use other methods for interpreting features: 
+https://github.com/Liyubov/Trajectory_analysis/blob/main/notebooks/LSTM_MultipleFeatures_batched.ipynb
 
 [1] R. Metzler et al. "Anomalous diffusion models and their properties: non-stationarity, non-ergodicity, and ageing at the centenary of single particle tracking"  https://pubs.rsc.org/en/content/articlelanding/2014/cp/c4cp03465a#!divAbstract 
 Phys. Chem. Chem. Phys., 16, 24128-24164  (2014)
